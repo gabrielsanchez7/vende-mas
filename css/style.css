@@ -1,4 +1,4 @@
-header .container, header .container #menu-header, header .container #menu-header ul:not(#user-header), header .container #menu-header ul#user-header, #pos-movil > div {
+header .container, header .container #menu-header, header .container #menu-header ul:not(#user-header), header .container #menu-header ul#user-header, #pos-movil > div, #list-beneficios ul, #list-beneficios #mas-beneficios {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,6 +19,11 @@ footer ul, #banner .handlers {
 
 p {
   margin: 15px 0;
+  line-height: 1.4;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  color: #747474;
 }
 
 body {
@@ -128,6 +133,19 @@ footer ul li:not(:last-child)::after {
 
 #banner {
   position: relative;
+  min-height: 800px;
+  height: 100%;
+  background-image: url(../assets/fondo-banner-1a.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#banner .banner {
+  position: absolute;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: #fff;
 }
 #banner img {
   max-height: 760px;
@@ -153,18 +171,10 @@ footer ul li:not(:last-child)::after {
   margin: 0 3px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.2s linear;
 }
 #banner .handlers .dot.active {
   background: #666666;
-}
-#banner .banner-1a .calculadora {
-  background-image: url("../assets/calculadora.png");
-  display: block;
-  height: 638px;
-  width: 475px;
-  z-index: 12;
-  position: relative;
-  margin: auto;
 }
 
 #pos-movil {
@@ -200,11 +210,6 @@ footer ul li:not(:last-child)::after {
   height: 2px;
   background-color: #61388b;
   bottom: -15px;
-}
-#pos-movil > div > div:first-child p {
-  font-weight: 300;
-  font-size: 15px;
-  color: #636363;
 }
 #pos-movil > div > div:nth-child(3) {
   display: flex;
@@ -248,6 +253,76 @@ footer ul li:not(:last-child)::after {
   font-size: 35px;
   font-weight: 400;
   max-width: 600px;
+}
+
+#list-beneficios {
+  padding: 60px 0;
+}
+#list-beneficios ul {
+  align-items: flex-start;
+  list-style: none;
+  text-align: center;
+}
+#list-beneficios ul li {
+  display: block;
+  max-width: 272px;
+  width: 100%;
+  padding: 0 15px;
+}
+#list-beneficios ul li img {
+  margin-bottom: 20px;
+}
+#list-beneficios ul li h3 {
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 30px;
+  color: #61388b;
+  position: relative;
+  transition: 0.2s linear;
+  margin-bottom: 30px;
+}
+#list-beneficios ul li h3::after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 50px;
+  background-color: #61388b;
+  left: calc(50% - 25px);
+  bottom: -12px;
+}
+#list-beneficios ul li:hover h3 {
+  color: #EB2588;
+}
+#list-beneficios #mas-beneficios {
+  margin: auto;
+  font-size: 13px;
+  line-height: 38px;
+  background-color: #61388b;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  width: 130px;
+  text-align: center;
+  border-radius: 2px;
+  transition: 0.2s linear;
+  margin-top: 30px;
+}
+#list-beneficios #mas-beneficios:hover {
+  background-color: #EB2588;
+}
+#list-beneficios #mas-beneficios span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+#list-beneficios #mas-beneficios .fa {
+  border-left: 1px solid #fff;
+  display: inline-block;
+  line-height: 38px;
+  width: 50px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=style.css.map */
