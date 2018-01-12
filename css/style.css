@@ -1,0 +1,253 @@
+header .container, header .container #menu-header, header .container #menu-header ul:not(#user-header), header .container #menu-header ul#user-header, #pos-movil > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul, #banner .handlers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  margin: 15px 0;
+}
+
+body {
+  position: relative;
+  padding-top: 124px;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  border-bottom: 1px solid #d2d3d4;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  z-index: 200;
+}
+header img {
+  margin: 10px 0;
+  width: 100%;
+  transition: 0.2s linear;
+}
+header .container #menu-header ul:not(#user-header) li {
+  display: block;
+  line-height: 124px;
+  transition: 0.2s linear;
+}
+header .container #menu-header ul:not(#user-header) li a {
+  padding: 0 13px;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: #61388b;
+  font-size: 14px;
+  transition: 0.2s linear;
+}
+header .container #menu-header ul:not(#user-header) li a:hover {
+  color: #c72a81;
+  background-color: #e4dded;
+}
+header .container #menu-header ul#user-header li {
+  display: block;
+}
+header .container #menu-header ul#user-header li a {
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 32px;
+  display: block;
+  padding: 0 20px;
+  background-color: lightgray;
+  border-radius: 16px;
+  margin: 0 13px;
+  color: #fff;
+  transition: 0.2s linear;
+}
+header .container #menu-header ul#user-header li#compralo a {
+  background-color: #a0ce4e;
+}
+header .container #menu-header ul#user-header li#compralo a:hover {
+  background-color: #96c346;
+}
+header .container #menu-header ul#user-header li#cuenta a {
+  background-color: #EB2588;
+}
+
+footer {
+  background-color: #282A2B;
+  color: #fff;
+  font-size: 12px;
+}
+footer ul {
+  list-style: none;
+}
+footer ul li {
+  line-height: 50px;
+  padding: 0 10px;
+}
+footer ul li:not(:last-child)::after {
+  content: '|';
+  margin-left: 20px;
+}
+
+#gotop {
+  position: absolute;
+  bottom: 0;
+  display: none;
+  width: 48px;
+  line-height: 35px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  right: 75px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: 0.2s linear;
+  font-size: 22px;
+  position: fixed;
+}
+#gotop:hover {
+  background-color: #a0ce4e;
+}
+
+#banner {
+  position: relative;
+}
+#banner img {
+  max-height: 760px;
+  width: 100%;
+}
+#banner .handlers {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+#banner .handlers .dot {
+  display: block;
+  height: 18px;
+  width: 18px;
+  border: 3px solid #e5e5e5;
+  background: #7a7a7a;
+  background: -moz-linear-gradient(top, #7a7a7a 0%, white 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #7a7a7a), color-stop(100%, white));
+  background: -webkit-linear-gradient(top, #7a7a7a 0%, white 100%);
+  background: -o-linear-gradient(top, #7a7a7a 0%, white 100%);
+  background: -ms-linear-gradient(top, #7a7a7a 0%, white 100%);
+  background: linear-gradient(to bottom, #7a7a7a 0%, white 100%);
+  margin: 0 3px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#banner .handlers .dot.active {
+  background: #666666;
+}
+#banner .banner-1a .calculadora {
+  background-image: url("../assets/calculadora.png");
+  display: block;
+  height: 638px;
+  width: 475px;
+  z-index: 12;
+  position: relative;
+  margin: auto;
+}
+
+#pos-movil {
+  padding: 82px 0 52px 0;
+  background-image: url("../assets/pos-movil.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+#pos-movil > div > div:first-child {
+  max-width: 350px;
+}
+#pos-movil > div > div:first-child h3 {
+  position: relative;
+  margin-bottom: 50px;
+}
+#pos-movil > div > div:first-child h3 span {
+  display: block;
+  font-size: 35px;
+  font-weight: 400;
+}
+#pos-movil > div > div:first-child h3 span:first-child {
+  color: #EB2588;
+}
+#pos-movil > div > div:first-child h3 span:last-child {
+  color: #61388b;
+}
+#pos-movil > div > div:first-child h3::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background-color: #61388b;
+  bottom: -15px;
+}
+#pos-movil > div > div:first-child p {
+  font-weight: 300;
+  font-size: 15px;
+  color: #636363;
+}
+#pos-movil > div > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+}
+#pos-movil > div > div:nth-child(3) a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  width: 264px;
+  padding: 14px 50px;
+  text-align: center;
+  background-color: #61388b;
+  border-radius: 2px;
+  margin-top: 10px;
+  transition: 0.2s linear;
+}
+#pos-movil > div > div:nth-child(3) a:hover {
+  background-color: #EB2588;
+}
+#pos-movil > div img {
+  transition: 1s;
+}
+#pos-movil > div img:hover {
+  transform: scale(1.1);
+  opacity: 0.95;
+}
+
+#beneficios {
+  background-image: url(../assets/fondo-requisitos.jpg);
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  padding: 60px 0;
+}
+#beneficios h2 {
+  margin: auto;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+/*# sourceMappingURL=style.css.map */
