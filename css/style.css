@@ -1,4 +1,4 @@
-header .container, header .container #menu-header, header .container #menu-header ul:not(#user-header), header .container #menu-header ul#user-header, #pos-movil > div, #list-beneficios ul, #list-beneficios #mas-beneficios {
+.btn-default, header .container, header .container #menu-header, header .container #menu-header ul:not(#user-header), header .container #menu-header ul#user-header, #pos-movil > div, #list-beneficios ul, #zona-contacto .media, #modal-contacto .modal > div, #modal-contacto .modal > div form#contacto > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,6 +15,7 @@ footer ul, #banner .handlers {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 p {
@@ -26,15 +27,86 @@ p {
   color: #747474;
 }
 
+.btn-default {
+  margin: auto;
+  font-size: 13px;
+  line-height: 38px;
+  background-color: #61388b;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  width: 130px;
+  text-align: center;
+  border-radius: 2px;
+  transition: 0.2s linear;
+  margin-top: 30px;
+}
+.btn-default:hover {
+  background-color: #EB2588;
+}
+.btn-default span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+.btn-default .fa {
+  border-left: 1px solid #fff;
+  display: inline-block;
+  line-height: 38px;
+  width: 50px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
   padding-top: 124px;
+  transition: 0.2s linear;
 }
 
 .container {
   max-width: 1100px;
   width: 100%;
   margin: auto;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 30px;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 header {
@@ -46,7 +118,7 @@ header {
   z-index: 200;
 }
 header img {
-  margin: 10px 0;
+  margin: 5px 0 0 0;
   width: 100%;
   transition: 0.2s linear;
 }
@@ -64,7 +136,7 @@ header .container #menu-header ul:not(#user-header) li a {
   font-size: 14px;
   transition: 0.2s linear;
 }
-header .container #menu-header ul:not(#user-header) li a:hover {
+header .container #menu-header ul:not(#user-header) li a:hover, header .container #menu-header ul:not(#user-header) li a.active {
   color: #c72a81;
   background-color: #e4dded;
 }
@@ -294,35 +366,295 @@ footer ul li:not(:last-child)::after {
 #list-beneficios ul li:hover h3 {
   color: #EB2588;
 }
-#list-beneficios #mas-beneficios {
-  margin: auto;
-  font-size: 13px;
-  line-height: 38px;
-  background-color: #61388b;
-  text-decoration: none;
+
+#funcionamiento .here {
+  background-image: url(../assets/bg-funcionamiento.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #fff;
-  text-transform: uppercase;
-  width: 130px;
   text-align: center;
-  border-radius: 2px;
-  transition: 0.2s linear;
-  margin-top: 30px;
+  padding: 35px 0 115px 0;
 }
-#list-beneficios #mas-beneficios:hover {
+#funcionamiento .here h3 {
+  font-size: 35px;
+}
+#funcionamiento .here h3::after {
+  content: '\f078';
+  font-family: "FontAwesome";
+  font-size: 20px;
+  display: block;
+  margin-top: 3px;
+}
+#funcionamiento .here p {
+  font-size: 25px;
+  color: #fff;
+  margin-top: 3px;
+}
+#funcionamiento iframe {
+  display: block;
+  margin: -90px auto 0 auto;
+}
+#funcionamiento .mas-info {
+  text-align: center;
+  margin: 30px 0 60px 0;
+}
+#funcionamiento .mas-info .fa:not(.fa-long-arrow-right) {
+  font-size: 20px;
+  color: #61388b;
+}
+#funcionamiento .mas-info p {
+  font-size: 25px;
+  color: #333;
+  max-width: 430px;
+  margin: 25px auto;
+}
+
+#preguntas-frecuentes {
+  background-image: url(../assets/bg-preguntas-frecuentes.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  padding: 50px 0 60px 0;
+}
+#preguntas-frecuentes h3 {
+  font-size: 35px;
+  font-weight: 400;
+}
+#preguntas-frecuentes a {
+  width: 230px;
+  margin-top: 20px;
   background-color: #EB2588;
 }
-#list-beneficios #mas-beneficios span {
+#preguntas-frecuentes a:hover {
+  background-color: #fff;
+  color: #61388b;
+}
+#preguntas-frecuentes a:hover .fa {
+  border-color: #61388b;
+}
+
+#zona-contacto {
+  padding: 50px;
+}
+#zona-contacto > div:first-child {
+  text-align: center;
+}
+#zona-contacto > div:first-child h4 {
+  font-size: 25px;
+  color: #61388b;
+  font-weight: 300;
+}
+#zona-contacto > div:first-child h3 {
+  font-size: 25px;
+  color: #EB2588;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+#zona-contacto > div:first-child a {
+  width: 160px;
+  margin-top: 20px;
+}
+#zona-contacto > div:first-child a span {
+  font-size: 14px;
+  line-height: 45px;
+}
+#zona-contacto > div:first-child a:hover {
+  background-color: #61388b;
+}
+#zona-contacto .media {
+  margin-top: 60px;
+  align-items: flex-start;
+}
+#zona-contacto .media img + div {
+  margin-left: -60px;
+}
+#zona-contacto .media strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #636363;
+}
+#zona-contacto .media .social-media {
+  list-style: none;
+  display: flex;
+  margin: 15px 0;
+}
+#zona-contacto .media .social-media a {
+  text-decoration: none;
+  color: #61388b;
+  margin-right: 15px;
+  transition: 0.2s linear;
+}
+#zona-contacto .media .social-media a:hover {
+  opacity: 0.85;
+}
+#zona-contacto .media .download {
+  list-style: none;
+  display: flex;
+  margin: 15px 0;
+}
+#zona-contacto .media .download li {
+  margin-right: 15px;
+}
+
+.back-modal {
+  position: fixed;
+  display: block;
   width: 100%;
   height: 100%;
-  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  z-index: 500;
 }
-#list-beneficios #mas-beneficios .fa {
-  border-left: 1px solid #fff;
-  display: inline-block;
-  line-height: 38px;
-  width: 50px;
+.back-modal .modal {
+  background-image: url(../assets/bg-preguntas-frecuentes.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 55px;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  padding: 30px 60px;
+}
+
+#modal-contacto h3 {
+  font-size: 25px;
   text-align: center;
-  box-sizing: border-box;
+  font-weight: 300;
+}
+#modal-contacto h4 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+}
+#modal-contacto .modal > div {
+  align-items: flex-start;
+}
+#modal-contacto .modal > div > * {
+  width: 100%;
+}
+#modal-contacto .modal > div form#contacto {
+  margin: 35px 60px 0 0;
+}
+#modal-contacto .modal > div form#contacto > div #dni {
+  margin-right: 15px;
+}
+#modal-contacto .modal > div form#contacto input, #modal-contacto .modal > div form#contacto #tipo, #modal-contacto .modal > div form#contacto #mensaje {
+  display: block;
+  width: 100%;
+  padding: 0 12px;
+  line-height: 32px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: none;
+  transition: 0.2s linear;
+  outline: none;
+  border: 1px solid transparent;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #555555;
+}
+#modal-contacto .modal > div form#contacto input:focus, #modal-contacto .modal > div form#contacto #tipo:focus, #modal-contacto .modal > div form#contacto #mensaje:focus {
+  -webkit-box-shadow: 0px 0px 11px 0px #5598db;
+  -moz-box-shadow: 0px 0px 11px 0px #5598db;
+  box-shadow: 0px 0px 11px 0px #5598db;
+  border: 1px solid #5598db;
+}
+#modal-contacto .modal > div form#contacto input::placeholder, #modal-contacto .modal > div form#contacto #tipo::placeholder, #modal-contacto .modal > div form#contacto #mensaje::placeholder {
+  color: #aaa9a9;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+#modal-contacto .modal > div form#contacto #tipo {
+  height: 34px;
+}
+#modal-contacto .modal > div form#contacto #mensaje {
+  padding: 6px 12px;
+  line-height: 20px;
+  height: 82px;
+}
+#modal-contacto .modal > div form#contacto input[type="submit"] {
+  max-width: 65px;
+  background-color: #fff;
+  color: #61388b;
+  font-weight: 400;
+  cursor: pointer;
+}
+#modal-contacto .modal > div form#contacto input[type="submit"]:focus {
+  -webkit-box-shadow: 0px 0px 11px 0px transparent;
+  -moz-box-shadow: 0px 0px 11px 0px transparent;
+  box-shadow: 0px 0px 11px 0px transparent;
+  border: 1px solid transparent;
+}
+#modal-contacto .modal > div form#contacto input[type="submit"]:active {
+  -webkit-box-shadow: 0px 0px 11px 0px #5598db;
+  -moz-box-shadow: 0px 0px 11px 0px #5598db;
+  box-shadow: 0px 0px 11px 0px #5598db;
+  border: 1px solid #5598db;
+}
+#modal-contacto .modal > div form#contacto textarea {
+  resize: none;
+}
+#modal-contacto .modal > div > div ul {
+  cursor: pointer;
+  text-align: center;
+  list-style: none;
+  transition: 0.2s linear;
+}
+#modal-contacto .modal > div > div ul:first-child {
+  margin: 30px 0 70px 0;
+}
+#modal-contacto .modal > div > div ul .here {
+  display: block;
+  width: 60px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #61388b;
+  margin: 20px auto;
+  transition: 0.2s linear;
+  overflow: hidden;
+}
+@keyframes ico-form {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(60px, 0);
+  }
+  51% {
+    transform: translate(-60px, 0);
+  }
+  100% {
+    transform: translate(0px, 0);
+  }
+}
+#modal-contacto .modal > div > div ul .here .fa {
+  line-height: 60px;
+  font-size: 30px;
+}
+#modal-contacto .modal > div > div ul li:not(.fa) {
+  font-size: 23px;
+  font-weight: 300;
+  transition: 0.2s linear;
+}
+#modal-contacto .modal > div > div ul:hover li:not(.here) {
+  color: #EB2588;
+}
+#modal-contacto .modal > div > div ul:hover .fa {
+  animation: ico-form 0.25s;
 }
 
 /*# sourceMappingURL=style.css.map */

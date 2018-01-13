@@ -8,6 +8,7 @@ $verde-hover: #96c346;
 $negro: #282A2B;
 $transition: 0.2s linear;
 $color-text: #747474;
+$font-awesome: 'FontAwesome';
 
 %block-between {
 	display: flex;
@@ -26,6 +27,7 @@ $color-text: #747474;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: $roboto-regular;
+	font-weight: 400;
 }
 
 p {
@@ -37,15 +39,85 @@ p {
 	color: $color-text;
 }
 
+.btn-default {
+	margin: auto;
+	font-size: 13px;
+	line-height: 38px;
+	background-color: $morado;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	width: 130px;
+	text-align: center;
+	border-radius: 2px;
+	transition: $transition;
+	margin-top: 30px;
+	@extend %block-between;
+	&:hover { background-color: $magenta; }
+	span {
+		width: 100%;
+		height: 100%;
+		display: inline-block;
+	}
+	.fa {
+		border-left: 1px solid #fff;
+		display: inline-block;
+		line-height: 38px;
+		width: 50px;
+		text-align: center;
+		box-sizing: border-box;
+	}
+}
+
 body {
 	position: relative;
 	padding-top: 124px;
+	transition: $transition;
 }
 
 .container {
 	max-width: 1100px;
 	width: 100%;
 	margin: auto;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 10px;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 30px;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 1s;
+	font-size: 12px;
+	font-weight: 300;
+}
+
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
 }
 
 header {
@@ -55,8 +127,11 @@ header {
 	top: 0;
 	background-color: #fff;
 	z-index: 200;
+	// -webkit-box-shadow: 0px 1px 2px 0px $border-color;
+	// -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.48);
+	// box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.48);
 	img {
-		margin: 10px 0;
+		margin: 5px 0 0 0;
 		width: 100%;
 		transition: $transition;
 	}
@@ -78,7 +153,7 @@ header {
 						color: $morado;
 						font-size: 14px;
 						transition: $transition;
-						&:hover {
+						&:hover, &.active {
 							color: $morado-hover;
 							background-color: #e4dded;
 						}
@@ -316,33 +391,281 @@ footer {
 			}
 		}
 	}
-	#mas-beneficios {
-		margin: auto;
-		font-size: 13px;
-		line-height: 38px;
-		background-color: $morado;
-		text-decoration: none;
+}
+
+#funcionamiento {
+	.here {
+		background-image: url(../assets/bg-funcionamiento.jpg);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
 		color: #fff;
-		text-transform: uppercase;
-		width: 130px;
 		text-align: center;
-		border-radius: 2px;
-		transition: $transition;
-		margin-top: 30px;
-		@extend %block-between;
-		&:hover { background-color: $magenta; }
-		span {
-			width: 100%;
-			height: 100%;
-			display: inline-block;
+		padding: 35px 0 115px 0;
+		h3 {
+			font-size: 35px;
+			&::after {
+				content: '\f078';
+				font-family: $font-awesome;
+				font-size: 20px;
+				display: block;
+				margin-top: 3px;
+			}
 		}
-		.fa {
-			border-left: 1px solid #fff;
-			display: inline-block;
-			line-height: 38px;
-			width: 50px;
-			text-align: center;
-			box-sizing: border-box;
+		p {
+			font-size: 25px;
+			color: #fff;
+			margin-top: 3px;
+		}
+	}
+	iframe {
+		display: block;
+		margin: -90px auto 0 auto;
+	}
+	.mas-info {
+		text-align: center;
+		margin: 30px 0 60px 0;
+		.fa:not(.fa-long-arrow-right) {
+			font-size: 20px;
+			color: $morado;
+		}
+		p {
+			font-size: 25px;
+			color: #333;
+			max-width: 430px;
+			margin: 25px auto;
+		}
+	}
+}
+
+#preguntas-frecuentes {
+	background-image: url(../assets/bg-preguntas-frecuentes.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #fff;
+	text-align: center;
+	padding: 50px 0 60px 0;
+	h3 {
+		font-size: 35px;
+		font-weight: 400;
+	}
+	a {
+		width: 230px;
+		margin-top: 20px;
+		background-color: $magenta;
+		&:hover {
+			background-color: #fff;
+			color: $morado;
+			.fa { border-color: $morado; }
+		}
+	}
+}
+
+#zona-contacto {
+	padding: 50px;
+	& > div:first-child {
+		text-align: center;
+		h4 {
+			font-size: 25px;
+			color: $morado;
+			font-weight: 300;
+		}
+		h3 {
+			font-size: 25px;
+			color: $magenta;
+			text-transform: uppercase;
+			font-weight: 300;
+		}
+		a {
+			width: 160px;
+			margin-top: 20px;
+			span {
+				font-size: 14px;
+				line-height: 45px;
+			}
+			&:hover { background-color: $morado; }
+		}
+	}
+	.media {
+		margin-top: 60px;
+		@extend %block-between;
+		align-items: flex-start;
+		img + div { margin-left: -60px; }
+		strong {
+			font-size: 15px;
+			font-weight: 700;
+			color: #636363;
+		}
+		.social-media {
+			list-style: none;
+			display: flex;
+			margin: 15px 0;
+			a {
+				text-decoration: none;
+				color: $morado;
+				margin-right: 15px;
+				transition: $transition;
+				&:hover { opacity: 0.85; }
+			}
+		}
+		.download {
+			list-style: none;
+			display: flex;
+			margin: 15px 0;
+			li {
+				margin-right: 15px;
+			}
+		}
+	}
+}
+
+.back-modal {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	z-index: 500;
+	.modal {
+		background-image: url(../assets/bg-preguntas-frecuentes.jpg);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		color: #fff;
+		max-width: 900px;
+		margin: auto;
+		margin-top: 55px;
+		border-radius: 2px;
+		box-shadow: 0 0 8px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+		-moz-box-shadow: 0 0 8px rgba(0,0,0,0.5);
+		padding: 30px 60px;
+	}
+}
+
+#modal-contacto {
+	h3 {
+		font-size: 25px;
+		text-align: center;
+		font-weight: 300;
+	}
+	h4 {
+		font-size: 20px;
+		text-align: center;
+		font-weight: 300;
+	}
+	.modal > div {
+		@extend %block-between;
+		align-items: flex-start;
+		& > * { width: 100%; }
+		form#contacto {
+			margin: 35px 60px 0 0;
+			& > div {
+				@extend %block-between;
+				#dni { margin-right: 15px; }
+			}
+			input, #tipo, #mensaje {
+				display: block;
+				width: 100%;
+				padding: 0 12px;
+				line-height: 32px;
+				margin-bottom: 15px;
+				border-radius: 4px;
+				border: none;
+				transition: $transition;
+				outline: none;
+				border: 1px solid transparent;
+				font-family: $roboto-regular;
+				font-weight: 300;
+				font-size: 14px;
+				color: #555555;
+				&:focus {
+					-webkit-box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					-moz-box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					border: 1px solid rgba(85,152,219,1);
+				}
+				&::placeholder {
+					color: #aaa9a9;
+					font-family: $roboto-regular;
+					font-weight: 300;
+					font-size: 14px;
+				}
+			}
+			#tipo {
+				height: 34px;
+			}
+			#mensaje {
+				padding: 6px 12px;
+				line-height: 20px;
+				height: 82px;
+			}
+			input[type="submit"] {
+				max-width: 65px;
+				background-color: #fff;
+				color: $morado;
+				font-weight: 400;
+				cursor: pointer;
+				&:focus {
+					-webkit-box-shadow: 0px 0px 11px 0px transparent;
+					-moz-box-shadow: 0px 0px 11px 0px transparent;
+					box-shadow: 0px 0px 11px 0px transparent;
+					border: 1px solid transparent;
+				}
+				&:active {
+					-webkit-box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					-moz-box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					box-shadow: 0px 0px 11px 0px rgba(85,152,219,1);
+					border: 1px solid rgba(85,152,219,1);
+				}
+			}
+			textarea { resize: none; }
+		}
+		& > div {
+			ul {
+				cursor: pointer;
+				text-align: center;
+				list-style: none;
+				transition: $transition;
+				&:first-child { margin: 30px 0 70px 0; }
+				.here {
+					display: block;
+					width: 60px;
+					text-align: center;
+					border-radius: 50%;
+					background-color: #fff;
+					color: $morado;
+					margin: 20px auto;
+					transition: $transition;
+					overflow: hidden;
+					@keyframes ico-form {
+						0% { transform: translate(0, 0); }
+						50% { transform: translate(60px, 0); }
+						51% { transform: translate(-60px, 0); }
+						100% { transform: translate(0px, 0); }
+					}
+					.fa {
+						line-height: 60px;
+						font-size: 30px;
+					}
+				}
+				li:not(.fa) {
+					font-size: 23px;
+					font-weight: 300;
+					transition: $transition;
+				}
+				&:hover {
+					li:not(.here) { color: $magenta; }
+					.fa {
+						animation: ico-form 0.25s;
+					}
+				}
+			}
 		}
 	}
 }

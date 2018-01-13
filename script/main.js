@@ -5,14 +5,14 @@ $(document).ready(function(){
 	var imgLogo = $('header img');
 	$(window).scroll(function(){
 		if($(window).scrollTop() != 0){
-			itMenu.css('lineHeight', '50px');
+			itMenu.css('lineHeight', '65px');
 			imgLogo.width(95);
-			$('body').css('padding-top: 80px');
+			$('body').css({paddingTop: '66px'});
 		}
 		else {
-			itMenu.css('lineHeight', '124px');
+			itMenu.css('lineHeight', '125px');
 			imgLogo.width(171);
-			$('body').css('padding-top: 124px');
+			$('body').css({paddingTop: '125px'});
 		}
 	});
 
@@ -72,22 +72,22 @@ $(document).ready(function(){
 	//Lista de beneficios
 	var data = [
 		{
-			image: 'vende-mas-unico-pago.png',
+			image: 'unico-pago.png',
 			title: 'Pago Único',
 			description: 'Esta moderna herramienta puede ser tuya a un costo mínimo. ¡Olvídate de los alquileres mensuales, realiza el primer pago y el MPOS ya es tuyo!'
 		},
 		{
-			image: 'vende-mas-dinero-seguro.png',
+			image: 'dinero-seguro.png',
 			title: 'Tu dinero está más seguro',
 			description: 'Porque nos preocúpanos por tu seguridad, a través de esta herramienta evitarás acumular mucho efectivo en tu local. De esta manera podrás reducir riesgos de robo.'
 		},
 		{
-			image: 'vende-mas-requisitos.png',
+			image: 'requisitos.png',
 			title: 'Requisitos Mínimos',
 			description: 'Sólo necesitas de un smartphone con un plan de datos, tu correo electrónico y una cuenta bancaria. ¡Así de simple!'
 		},
 		{
-			image: 'vende-mas-unico-pago.png',
+			image: 'unico-pago.png',
 			title: 'Depósito dentro de las 48 horas útiles',
 			description: 'Ingresa tu cuenta de ahorros o cuenta corriente en concordancia con los datos de tu registro.'
 		}
@@ -97,6 +97,91 @@ $(document).ready(function(){
 
 	$.each(data, function(index, value){
 		$('#list-beneficios ul').append(templateListBeneficios(value));
+	});
+
+	//menu links
+	$('#menu-header .menu').click(function(ev){
+		ev.preventDefault();
+		var target = $(ev.target).attr('class');
+		var goZone = $('#' + target).offset().top;
+		console.log(target + ': ' + goZone);
+		$('html, body').animate({scrollTop: (goZone - 66) + 'px'}, 500, 'easeInQuart');
+	});
+
+	//validación de formulario
+	var nameRegex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s+]{3,25}$/;
+	var dniRegex = /^([0-9]{8})+$/i;
+	var tlfRegex = /^([0-9]{9})+$/i;
+	var emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+	function invalidForm(){
+		$('form#contacto').find('input[type="text"]').animate({opacity: 0}, 100);
+		setTimeout(function(){
+			$('form#contacto').find('input[type="text"]').animate({opacity: 1}, 100);
+		}, 270);
+	}
+
+	function validate(input, regex){
+		if(regex.test($(input).val())){
+			$(input).attr('data-valid', true);
+			$(input).css({
+				'-webkit-box-shadow': '0px 0px 11px 0px transparent',
+				'-moz-box-shadow': '0px 0px 11px 0px transparent',
+				'box-shadow': '0px 0px 11px 0px transparent',
+				'border': '1px solid transparent'
+			});
+			$(input).focus(function(){
+				$(this).css({
+					'-webkit-box-shadow': '0px 0px 11px 0px rgba(85,152,219,1)',
+					'-moz-box-shadow': '0px 0px 11px 0px rgba(85,152,219,1)',
+					'box-shadow': '0px 0px 11px 0px rgba(85,152,219,1)',
+					'border': '1px solid rgba(85,152,219,1)'
+				});
+			});
+			$(input).focusout(function(){
+				$(this).css({
+					'-webkit-box-shadow': '0px 0px 11px 0px transparent',
+					'-moz-box-shadow': '0px 0px 11px 0px transparent',
+					'box-shadow': '0px 0px 11px 0px transparent',
+					'border': '1px solid transparent'
+				});
+			});
+			return true;
+		}
+		else {
+			$(input).focus();
+			$(input).css({
+				'-webkit-box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+				'-moz-box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+				'box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+				'border': '1px solid rgba(161,103,53,1)'
+			});
+			$(input).focus(function(){
+				$(this).css({
+					'-webkit-box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+					'-moz-box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+					'box-shadow': '0px 0px 11px 0px rgba(161,103,53,1)',
+					'border': '1px solid rgba(161,103,53,1)'
+				});
+			});
+			return false;
+		}
+	}
+
+	$('form#contacto').submit(function(){
+		validate('#email', emailRegex);
+		validate('#telefono', tlfRegex);
+		validate('#dni', dniRegex);
+		validate('#name', nameRegex);
+
+		var validos = $(this).find('input[data-valid="true"]');
+		if(validos.length != 4) {
+			invalidForm();
+			return false;
+		}
+		else {
+			return true;
+		}
 	});
 
 });
