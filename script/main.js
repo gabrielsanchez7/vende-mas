@@ -44,11 +44,13 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		if($(window).scrollTop() != 0){
 			itMenu.css('lineHeight', '65px');
+			$('#btn-menu-responsive').css('lineHeight', '64px');
 			imgLogo.width(95);
 			$('body').css({paddingTop: '66px'});
 		}
 		else {
 			itMenu.css('lineHeight', '125px');
+			$('#btn-menu-responsive').css('lineHeight', '124px');
 			imgLogo.width(171);
 			$('body').css({paddingTop: '125px'});
 		}
