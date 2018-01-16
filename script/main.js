@@ -36,6 +36,77 @@ function preventMenu(){
 	});
 }
 
+function swipeBanner(){
+	var banner = document.getElementById('banner-slide');
+	var handler = document.getElementById('handler');
+	var slide = document.getElementById('slide1a');
+	var xIni, xMove, xEnd;
+	var xIniMobile, xMoveMobile, xEndMobile;
+	var swiped = false;
+
+	// Web
+	handler.addEventListener('mousedown', function(ev){
+		xIni = ev.clientX;
+		swiped = true;
+		banner.addEventListener('mousemove', function(ev){
+			if(swiped){
+				xMove = ev.clientX;
+				handler.style.left = 'calc(' + (xMove - 16) + 'px)';
+				divisor.style.left = 'calc(' + (xMove - 7) + 'px)';
+				slide.style.width = (xMove - 5) + 'px';
+				if((xMove - 5) <= 5) {
+					handler.style.left = '-5px';
+					divisor.style.left = '5px';
+					slide.style.width = '5px';
+				}
+				if((xMove - 5) >= (window.innerWidth - 35)) {
+					handler.style.left = (window.innerWidth - 45) + 'px';
+					divisor.style.left = (window.innerWidth - 35) + 'px';
+					slide.style.width = (window.innerWidth - 35) + 'px';
+				}
+			}
+		});
+	});
+
+	banner.addEventListener('mouseup', function(ev){
+		xEnd = ev.clientX;
+		swiped = false;
+	});
+
+	// Mobile
+	handler.addEventListener('touchstart', function(ev){
+		var touch = ev.targetTouches[0];
+		xIniMobile = touch.pageX;
+		swiped = true;
+		banner.addEventListener('touchmove', function(ev){
+			if(swiped){
+				var touch = ev.targetTouches[0];
+				xMoveMobile = touch.pageX;
+				handler.style.left = 'calc(' + (xMoveMobile - 16) + 'px)';
+				divisor.style.left = 'calc(' + (xMoveMobile - 7) + 'px)';
+				slide.style.width = (xMoveMobile - 5) + 'px';
+				if((xMoveMobile - 5) <= 5) {
+					handler.style.left = '-5px';
+					divisor.style.left = '5px';
+					slide.style.width = '5px';
+				}
+				if((xMoveMobile - 5) >= (window.innerWidth - 35)) {
+					handler.style.left = (window.innerWidth - 45) + 'px';
+					divisor.style.left = (window.innerWidth - 35) + 'px';
+					slide.style.width = (window.innerWidth - 35) + 'px';
+					console.log(window.innerWidth)
+				}
+			}
+		});
+	});
+
+	banner.addEventListener('touchend', function(ev){
+		var touch = ev.changedTouches[0];
+		xEndMobile = touch.clientX;
+		swiped = false;
+	});
+}
+
 $(document).ready(function(){
 
 	//scroll menu
@@ -49,10 +120,12 @@ $(document).ready(function(){
 			$('body').css({paddingTop: '66px'});
 		}
 		else {
-			itMenu.css('lineHeight', '125px');
-			$('#btn-menu-responsive').css('lineHeight', '124px');
-			imgLogo.width(171);
-			$('body').css({paddingTop: '125px'});
+			if($(window).width() > 1100) {
+				itMenu.css('lineHeight', '125px');
+				$('#btn-menu-responsive').css('lineHeight', '124px');
+				imgLogo.width(171);
+				$('body').css({paddingTop: '125px'});
+			}
 		}
 	});
 
@@ -72,6 +145,14 @@ $(document).ready(function(){
 	var handlers = $('#banner .handlers');
 	var position = 1;
 	var intervalo;
+
+	function sizeBanner(){
+		var altura = $('#banner #image-size').height();
+		$('#banner').height(altura);
+	}
+
+	sizeBanner();
+	$(window).resize(sizeBanner);
 
 	$.each(banners.find('.banner'), function(index, value){
 		handlers.append('<div class="dot" id="dot' + (index+1) + '" />');
@@ -504,3 +585,193 @@ $(document).ready(function(){
 	});
 
 });
+
+function resizeInput(){
+	if($(window).width() <= 600){
+		$('#dni, #telefono').each(function(){
+			this.style.setProperty('width', '100%', 'important');
+		});
+	}
+}
+
+//Lazy Load
+function lazyLoadIndex(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadSimulador = ($('#btn-simulador').offset().top) + ($('#btn-simulador').height());
+		if(loadSimulador <= windowBot){
+			$('#btn-simulador').css('animation', 'lazyButton 0.25s ease');
+		}
+
+		var loadPosMovil = ($('#pos-movil > div > div:first-child').offset().top) + ($('#pos-movil > div > div:first-child').height());
+		if(loadPosMovil <= windowBot){
+			$('#pos-movil > div > div:first-child').css({
+				animation: 'lazyPosMovil 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+			setTimeout(function(){
+				$('#pos-movil .here img:first-child').css({
+					animation: 'lazyImgPos 0.15s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 250);
+			setTimeout(function(){
+				$('#pos-movil > div > div:nth-child(3) img').css({
+					animation: 'lazyImgPos 0.15s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 500);
+			setTimeout(function(){
+				$('#pos-movil .here img:last-child').css({
+					animation: 'lazyImgPos 0.35s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 750);
+		}
+
+		var loadBeneficios1 = ($('#list-beneficios ul li:nth-child(1)').offset().top) + ($('#list-beneficios ul li:nth-child(1)').height());
+		if(loadBeneficios1 <= windowBot){
+			$('#list-beneficios ul li:nth-child(1), #list-beneficios ul li:nth-child(2)').css({
+				animation: 'lazyBeneficiosOne 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBeneficios2 = ($('#list-beneficios ul li:nth-child(3)').offset().top) + ($('#list-beneficios ul li:nth-child(4)').height());
+		if(loadBeneficios2 <= windowBot){
+			$('#list-beneficios ul li:nth-child(3), #list-beneficios ul li:nth-child(4)').css({
+				animation: 'lazyBeneficiosOne 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnBeneficios = ($('#mas-beneficios').offset().top) + ($('#mas-beneficios').height());
+		if(loadBtnBeneficios <= windowBot){
+			$('#mas-beneficios').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnYoutube = ($('#go-youtube').offset().top) + ($('#go-youtube').height());
+		if(loadBtnYoutube <= windowBot){
+			$('#go-youtube').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnPreguntas = ($('#btnPreguntasFrecuentes').offset().top) + ($('#btnPreguntasFrecuentes').height());
+		if(loadBtnPreguntas <= windowBot){
+			$('#btnPreguntasFrecuentes').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnContacto = ($('#btn-contacto').offset().top) + ($('#btn-contacto').height());
+		if(loadBtnContacto <= windowBot){
+			$('#btn-contacto').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}
+
+function lazyLoadBeneficios(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadCatalogo = ($('#catalogo > div div ul').offset().top) + ($('#catalogo > div div ul').height());
+		if(loadCatalogo <= windowBot){
+			$('#catalogo > div div ul li:nth-child(1)').css({
+				animation: 'lazyCatalogo 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+			setTimeout(function(){
+				$('#catalogo > div div ul li:nth-child(2)').css({
+					animation: 'lazyCatalogo 0.15s ease-out',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 400);
+			setTimeout(function(){
+				$('#catalogo > div div ul li:nth-child(3)').css({
+					animation: 'lazyCatalogo 0.15s ease-out',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 800);
+		}
+
+		var loadBase = ($('#base-clientes > div:not(.cnt-video)').offset().top) + ($('#base-clientes > div:not(.cnt-video)').height());
+		if((loadBase - 500) <= windowBot){
+			$('#base-clientes > div:not(.cnt-video)').css({
+				animation: 'lazyBase 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadHistorial = ($('#historial > div > div:first-child').offset().top) + ($('#historial > div > div:first-child').height());
+		if(loadHistorial <= windowBot){
+			$('#historial > div > div:first-child').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadStaff = ($('#staff').offset().top) + ($('#staff').height());
+		if(loadStaff <= windowBot){
+			$('#staff').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadPanel = ($('#panel-control > div > div:first-child').offset().top) + ($('#panel-control > div > div:first-child').height());
+		if(loadPanel <= windowBot){
+			$('#panel-control > div > div:first-child').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}
+
+function lazyLoadPreguntas(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadPreguntas = ($('#cont-preguntas h3, #cont-preguntas h4').offset().top) + ($('#cont-preguntas h3, #cont-preguntas h4').height());
+		if(loadPreguntas <= windowBot){
+			$('#cont-preguntas h3, #cont-preguntas h4').css({
+				animation: 'lazyCatalogo 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}
