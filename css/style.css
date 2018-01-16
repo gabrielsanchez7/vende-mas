@@ -168,7 +168,7 @@ header .container #menu-header ul#user-header li a {
   display: block;
   padding: 0 20px;
   background-color: lightgray;
-  border-radius: 16px;
+  border-radius: 5px;
   margin: 0 13px;
   color: #fff;
   transition: 0.2s linear;
