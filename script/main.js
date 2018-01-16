@@ -472,7 +472,8 @@ $(document).ready(function(){
 
 	//Simulador de comisión
 	$('#venta').keypress(function(ev){
-		if(ev.keyCode >= 48 && ev.keyCode <= 57){
+		console.log(ev.keyCode)
+		if((ev.keyCode >= 48 && ev.keyCode <= 57) || ev.keyCode == 46){
 			return true;
 		}
 		else {
