@@ -499,4 +499,184 @@ $(document).ready(function(){
 		$('#menu-responsive').slideToggle();
 	});
 
+	
+
 });
+
+//Lazy Load
+function lazyLoadIndex(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadSimulador = ($('#btn-simulador').offset().top) + ($('#btn-simulador').height());
+		if(loadSimulador <= windowBot){
+			$('#btn-simulador').css('animation', 'lazyButton 0.25s ease');
+		}
+
+		var loadPosMovil = ($('#pos-movil > div > div:first-child').offset().top) + ($('#pos-movil > div > div:first-child').height());
+		if(loadPosMovil <= windowBot){
+			$('#pos-movil > div > div:first-child').css({
+				animation: 'lazyPosMovil 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+			setTimeout(function(){
+				$('#pos-movil .here img:first-child').css({
+					animation: 'lazyImgPos 0.15s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 250);
+			setTimeout(function(){
+				$('#pos-movil > div > div:nth-child(3) img').css({
+					animation: 'lazyImgPos 0.15s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 500);
+			setTimeout(function(){
+				$('#pos-movil .here img:last-child').css({
+					animation: 'lazyImgPos 0.35s ease',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 750);
+		}
+
+		var loadBeneficios = ($('#list-beneficios ul').offset().top) + ($('#list-beneficios ul').height());
+		if(loadBeneficios <= windowBot){
+			$('#list-beneficios ul li:nth-child(1), #list-beneficios ul li:nth-child(2)').css({
+				animation: 'lazyBeneficiosOne 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+			$('#list-beneficios ul li:nth-child(3), #list-beneficios ul li:nth-child(4)').css({
+				animation: 'lazyBeneficiosTwo 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnBeneficios = ($('#mas-beneficios').offset().top) + ($('#mas-beneficios').height());
+		if(loadBtnBeneficios <= windowBot){
+			$('#mas-beneficios').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnYoutube = ($('#go-youtube').offset().top) + ($('#go-youtube').height());
+		if(loadBtnYoutube <= windowBot){
+			$('#go-youtube').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnPreguntas = ($('#btnPreguntasFrecuentes').offset().top) + ($('#btnPreguntasFrecuentes').height());
+		if(loadBtnPreguntas <= windowBot){
+			$('#btnPreguntasFrecuentes').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadBtnContacto = ($('#btn-contacto').offset().top) + ($('#btn-contacto').height());
+		if(loadBtnContacto <= windowBot){
+			$('#btn-contacto').css({
+				animation: 'lazyButton 0.25s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}
+
+function lazyLoadBeneficios(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadCatalogo = ($('#catalogo > div div ul').offset().top) + ($('#catalogo > div div ul').height());
+		if(loadCatalogo <= windowBot){
+			$('#catalogo > div div ul li:nth-child(1)').css({
+				animation: 'lazyCatalogo 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+			setTimeout(function(){
+				$('#catalogo > div div ul li:nth-child(2)').css({
+					animation: 'lazyCatalogo 0.15s ease-out',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 400);
+			setTimeout(function(){
+				$('#catalogo > div div ul li:nth-child(3)').css({
+					animation: 'lazyCatalogo 0.15s ease-out',
+					transform: 'translateX(0)',
+					opacity: 1
+				});
+			}, 800);
+		}
+
+		var loadBase = ($('#base-clientes > div:not(.cnt-video)').offset().top) + ($('#base-clientes > div:not(.cnt-video)').height());
+		if((loadBase - 500) <= windowBot){
+			$('#base-clientes > div:not(.cnt-video)').css({
+				animation: 'lazyBase 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadHistorial = ($('#historial > div > div:first-child').offset().top) + ($('#historial > div > div:first-child').height());
+		if(loadHistorial <= windowBot){
+			$('#historial > div > div:first-child').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadStaff = ($('#staff').offset().top) + ($('#staff').height());
+		if(loadStaff <= windowBot){
+			$('#staff').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+		var loadPanel = ($('#panel-control > div > div:first-child').offset().top) + ($('#panel-control > div > div:first-child').height());
+		if(loadPanel <= windowBot){
+			$('#panel-control > div > div:first-child').css({
+				animation: 'lazyCatalogo 0.25s ease-out',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}
+
+function lazyLoadPreguntas(){
+	$(window).scroll(function(){
+		var windowTop = $(document).scrollTop();
+		var windowBot = windowTop + window.innerHeight;
+
+		var loadPreguntas = ($('#cont-preguntas h3, #cont-preguntas h4').offset().top) + ($('#cont-preguntas h3, #cont-preguntas h4').height());
+		if(loadPreguntas <= windowBot){
+			$('#cont-preguntas h3, #cont-preguntas h4').css({
+				animation: 'lazyCatalogo 0.15s ease',
+				transform: 'translateX(0)',
+				opacity: 1
+			});
+		}
+
+	});
+}

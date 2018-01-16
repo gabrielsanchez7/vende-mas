@@ -31,9 +31,9 @@
 
 	<ul id="menu-responsive">
 		<li><a href="" class="pos-movil">&iquest;Qu&eacute; es?</a></li>
-		<li><a href="" class="beneficios">Beneficios</a></li>
+		<li><a href="./beneficios.html" class="beneficios">Beneficios</a></li>
 		<li><a href="" class="funcionamiento">&iquest;C&oacute;mo funciona?</a></li>
-		<li><a href="" class="preguntas-frecuentes active">Preguntas Frecuentes</a></li>
+		<li><a href="./preguntas-frecuentes.html" class="preguntas-frecuentes active">Preguntas Frecuentes</a></li>
 		<li><a href="" class="zona-contacto">Cont&aacute;ctanos</a></li>
 		<li><a href="https://dashboard.vendemas.com.pe/register">C&oacute;mpralo ahora</a></li>
 		<li><a href="https://dashboard.vendemas.com.pe/">Mi cuenta</a></li>
@@ -129,7 +129,7 @@
 				<p>Que te permite aceptar pagos con tarjetas de cr&eacute;dito y d&eacute;bito en cualquier lugar con tu smartphone.</p>
 				<p>Adem&aacute;s, te brinda herramientas para simplificar el manejo de t&uacute; negocio.</p>
 			</div>
-			<div>
+			<div class="here">
 				<img src="../assets/vende-mas-phone.png" alt="" width="210">
 				<img src="../assets/mpos.png" alt="" width="210">
 			</div>
@@ -177,7 +177,7 @@
 
 	<section id="preguntas-frecuentes">
 		<h3>Respuestas inmediatas a tus preguntas</h3>
-		<a href="./preguntas-frecuents.html" target="_blank" class="btn-default">
+		<a href="./preguntas-frecuentes.html" target="_blank" class="btn-default" id="btnPreguntasFrecuentes">
 				<span>Preguntas Frecuentes</span>
 				<span class="fa fa-long-arrow-right"></span>
 			</a>
@@ -286,8 +286,11 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 	<script src="../script/main.js"></script>
 	<script type="text/javascript">
-		templateHome();
-		preventMenu();
+		$(document).ready(function(){
+			templateHome();
+			preventMenu();
+			lazyLoadIndex();
+		});
 	</script>
 </body>
 </html>

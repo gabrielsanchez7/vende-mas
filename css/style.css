@@ -479,6 +479,18 @@ footer p a {
 }
 #pos-movil > div > div:first-child {
   max-width: 350px;
+  transform: translateX(-800px);
+  opacity: 0;
+}
+@keyframes lazyPosMovil {
+  from {
+    transform: translateX(-800px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 #pos-movil > div > div:first-child h3 {
   position: relative;
@@ -504,6 +516,20 @@ footer p a {
   background-color: #61388b;
   bottom: -15px;
 }
+#pos-movil > div .here img {
+  transform: translateX(800px);
+  opacity: 0;
+}
+@keyframes lazyImgPos {
+  from {
+    transform: translateX(800px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 #pos-movil > div > div:nth-child(3) {
   display: flex;
   flex-direction: column;
@@ -522,15 +548,52 @@ footer p a {
   margin-top: 10px;
   transition: 0.2s linear;
 }
+@keyframes lazyButton {
+  0% {
+    transform: translateX(50px);
+  }
+  10% {
+    transform: translateX(50px);
+  }
+  20% {
+    transform: translateX(-40px);
+  }
+  30% {
+    transform: translateX(-40px);
+  }
+  40% {
+    transform: translateX(30px);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+  60% {
+    transform: translateX(-20px);
+  }
+  70% {
+    transform: translateX(-20px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  90% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 #pos-movil > div > div:nth-child(3) a:hover {
   background-color: #EB2588;
 }
 #pos-movil > div img {
   transition: 1s;
+  transform: translateX(800px);
+  opacity: 0;
 }
 #pos-movil > div img:hover {
-  transform: scale(1.1);
-  opacity: 0.95;
+  transform: scale(1.1) !important;
+  opacity: 0.95 !important;
 }
 
 #beneficios {
@@ -561,6 +624,7 @@ footer p a {
   max-width: 272px;
   width: 100%;
   padding: 0 15px;
+  opacity: 0;
 }
 #list-beneficios ul li img {
   margin-bottom: 20px;
@@ -587,7 +651,32 @@ footer p a {
 #list-beneficios ul li:hover h3 {
   color: #EB2588;
 }
-
+#list-beneficios ul li:nth-child(1), #list-beneficios ul li:nth-child(2) {
+  transform: translateX(-800px);
+}
+#list-beneficios ul li:nth-child(3), #list-beneficios ul li:nth-child(4) {
+  transform: translateX(800px);
+}
+@keyframes lazyBeneficiosOne {
+  from {
+    transform: translateX(-800px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes lazyBeneficiosTwo {
+  from {
+    transform: translateX(800px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 #funcionamiento .here {
   background-image: url(../assets/bg-funcionamiento.jpg);
   background-size: cover;
@@ -989,11 +1078,23 @@ footer p a {
   align-items: flex-start;
 }
 #catalogo > div div ul li, #historial > div div ul li {
+  transform: translateX(-1200px);
+  opacity: 0;
   display: block;
   max-width: 220px;
   width: 100%;
   margin: 0 15px;
   cursor: pointer;
+}
+@keyframes lazyCatalogo {
+  from {
+    transform: translateX(-1200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 #catalogo > div div ul li p, #historial > div div ul li p {
   color: #fff;
@@ -1015,10 +1116,22 @@ footer p a {
   text-align: center;
 }
 #base-clientes > div:not(.cnt-video) {
+  transform: translateY(500px);
+  opacity: 0;
   max-width: 365px;
   width: 100%;
   margin: -35px 0 20px 0;
   margin-left: 100px;
+}
+@keyframes lazyBase {
+  from {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 #base-clientes > div:not(.cnt-video) h3 {
   font-size: 25px;
@@ -1030,6 +1143,8 @@ footer p a {
 }
 
 #historial > div div:not(.cnt-video) {
+  transform: translateX(-1200px);
+  opacity: 0;
   max-width: 630px;
   width: 100%;
 }
@@ -1041,6 +1156,8 @@ footer p a {
 }
 
 #staff {
+  transform: translateX(-1200px);
+  opacity: 0;
   margin: 50px auto 80px auto;
   padding-top: 50px;
 }
@@ -1064,6 +1181,8 @@ footer p a {
   padding: 20px 0 50px 0;
 }
 #panel-control > div div:not(.cnt-video):not(.video-after) {
+  transform: translateX(-1200px);
+  opacity: 0;
   max-width: 425px;
   width: 100%;
   margin-right: 15px;
@@ -1120,11 +1239,15 @@ footer p a {
   padding-top: 75px;
 }
 #cont-preguntas h3 {
+  transform: translateX(-1200px);
+  opacity: 0;
   font-size: 35px;
   color: #EB2588;
   text-align: center;
 }
 #cont-preguntas h4 {
+  transform: translateX(-1200px);
+  opacity: 0;
   font-size: 25px;
   color: #61388b;
   text-align: center;
@@ -1575,6 +1698,10 @@ footer p a {
 
   #pos-movil > div > div:first-child h3::after {
     left: calc(50% - 40px);
+  }
+
+  #cont-preguntas article .respuesta .slide .width-auto {
+    width: 100%;
   }
 }
 
