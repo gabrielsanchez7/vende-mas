@@ -228,12 +228,16 @@ $(document).ready(function(){
 	}
 
 	//menu links
-	$('#menu-header .menu').click(function(ev){
-		// ev.preventDefault();
+	$('#menu-header .menu, #menu-responsive').click(function(ev){
+		ev.preventDefault();
 		var target = $(ev.target).attr('class');
 		var goZone = $('#' + target).offset().top;
 		console.log(target + ': ' + goZone);
 		$('html, body').animate({scrollTop: (goZone - 66) + 'px'}, 500, 'easeInQuart');
+	});
+
+	$('#menu-responsive').click(function(){
+		$(this).slideUp();
 	});
 
 	//overflow modal
