@@ -310,7 +310,6 @@ $(document).ready(function(){
 
 	//menu links
 	$('#menu-header .menu, #menu-responsive').click(function(ev){
-		ev.preventDefault();
 		var target = $(ev.target).attr('class');
 		var goZone = $('#' + target).offset().top;
 		console.log(target + ': ' + goZone);
