@@ -41,6 +41,7 @@
 
 	<section id="banner">
 		<img class="shadow" src="../assets/shadow.png" alt="">
+		<div class="cnt-image-size"><img src="../assets/img-banner-2.jpg" id="image-size"></div>
 		<article class="banner banner-1">
 			<div>
 				<h2><span>Acepta Pagos</span><span>con Tarjetas</span></h2>
@@ -56,7 +57,7 @@
 				</div>
 				<a class="compralo" href="#">C&oacute;mpralo ahora</a>
 			</div>
-			<img src="../assets/calculadora.png" alt="" width="606">
+			<img src="../assets/calculadora.png" alt="">
 		</article>
 		<article class="banner banner-2">
 			<div>
@@ -72,7 +73,9 @@
 						<a href=""><img src="../assets/app-store-banner.png" alt="Co&oacute;mpralo por App Store"></a>
 					</div>
 				</div>
-				<div><img class="hereImg" src="../assets/img-banner-2.jpg" alt=""></div>
+				<div>
+					<img class="hereImg" src="../assets/img-banner-2.jpg" alt="">
+				</div>
 			</div>
 		</article>
 		<article class="banner banner-3">
@@ -290,6 +293,8 @@
 			templateHome();
 			preventMenu();
 			lazyLoadIndex();
+			resizeInput();
+			$(window).resize(resizeInput);
 		});
 	</script>
 </body>

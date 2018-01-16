@@ -73,6 +73,9 @@ $(document).ready(function(){
 	var position = 1;
 	var intervalo;
 
+	var altura = $('#banner #image-size').height();
+	console.log(altura);
+
 	$.each(banners.find('.banner'), function(index, value){
 		handlers.append('<div class="dot" id="dot' + (index+1) + '" />');
 	});
@@ -108,7 +111,7 @@ $(document).ready(function(){
 		}, 600);
 	}
 
-	intervalo = setInterval(slide, 9000);
+	intervalo = setInterval(slide, 900000);
 
 	handlers.find('.dot').click(function(ev){
 		var target = ev.target;
@@ -130,7 +133,7 @@ $(document).ready(function(){
 			inAnimation('.banner.active');
 		}, 1000);
 		clearInterval(intervalo);
-		intervalo = setInterval(slide, 9000);
+		intervalo = setInterval(slide, 900000);
 	});
 
 	function bgBanner(){
@@ -499,9 +502,15 @@ $(document).ready(function(){
 		$('#menu-responsive').slideToggle();
 	});
 
-	
-
 });
+
+function resizeInput(){
+	if($(window).width() <= 600){
+		$('#dni, #telefono').each(function(){
+			this.style.setProperty('width', '100%', 'important');
+		});
+	}
+}
 
 //Lazy Load
 function lazyLoadIndex(){

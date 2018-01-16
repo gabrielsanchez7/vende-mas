@@ -244,7 +244,6 @@ footer p a {
 
 #banner {
   position: relative;
-  height: 90vh;
   max-height: 800px;
   background-image: url(../assets/fondo-banner-1a.jpg);
   background-size: cover;
@@ -254,11 +253,20 @@ footer p a {
   overflow: hidden;
   transition: 0.2s linear;
 }
+#banner .cnt-image-size #image-size {
+  opacity: 0;
+  z-index: -20;
+  display: block;
+  max-width: 1000px;
+  width: 50vw;
+}
 #banner .shadow {
   height: 50px;
   width: 1000px;
   opacity: 0.5;
   z-index: 10;
+  position: absolute;
+  top: 0;
 }
 #banner .compralo {
   display: block;
@@ -315,7 +323,7 @@ footer p a {
 }
 #banner .banner-1 > img {
   position: absolute;
-  top: 60px;
+  bottom: 30px;
   left: calc(50% - 238px);
   width: auto;
   display: block;
@@ -414,6 +422,7 @@ footer p a {
   max-width: 1000px;
   max-height: 800px;
   padding: 160px 0 0 160px;
+  transition: 0.2s linear;
 }
 #banner .banner:not(.banner-1):not(.banner-5) > div .here img {
   width: 148px;
@@ -1532,8 +1541,15 @@ footer p a {
   }
 }
 @media screen and (max-width: 1100px) {
+  body {
+    padding-top: 66px;
+  }
+
   header {
     position: absolute;
+  }
+  header img {
+    max-width: 95px;
   }
 
   #menu-header {
@@ -1542,6 +1558,7 @@ footer p a {
 
   #btn-menu-responsive {
     display: block !important;
+    line-height: 65px !important;
   }
 
   #catalogo > div, #historial > div {
@@ -1702,6 +1719,270 @@ footer p a {
 
   #cont-preguntas article .respuesta .slide .width-auto {
     width: 100%;
+  }
+}
+@media screen and (max-width: 1700px) {
+  #banner .banner-1 > div {
+    transform: scale(0.9) !important;
+    margin: 50px 0 0 50px;
+  }
+}
+@media screen and (max-width: 1650px) {
+  #banner .banner-1 > div {
+    transform: scale(0.8) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 350px !important;
+    left: calc(50% - 175px);
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    padding: 100px 0 0 100px;
+    transform: scale(0.9);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  #banner .banner-1 > div {
+    transform: scale(0.75) translate(-80px, -40px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 260px !important;
+    left: calc(50% - 130px);
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    transform: scale(0.75);
+  }
+
+  #banner .banner-5 div > * {
+    transform: scale(0.85) !important;
+  }
+
+  #banner .banner-5 > div > div a {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #banner .banner-1 > div {
+    transform: scale(0.65) translate(-190px, -90px) !important;
+    margin: 0;
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    padding: 0;
+    transform: scale(0.55) translate(-72px, -92px);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 50px;
+  }
+
+  #banner .banner-4 > div .here {
+    transform: scale(0.55) translate(-72px, 20px) !important;
+  }
+
+  #banner .banner-5 div > * {
+    transform: scale(0.65) !important;
+  }
+
+  #banner .banner-5 > div > div a {
+    margin: -50px -20px 0 -20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #banner .banner-1 > div {
+    transform: scale(0.55) translate(-310px, -170px) !important;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  #banner .banner-1 > div {
+    transform: scale(0.45) translate(-450px, -250px) !important;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  #banner .banner-1 > div {
+    transform: scale(0.4) translate(-440px, -330px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 200px !important;
+    left: calc(50% - 100px);
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    transform: scale(0.55) translate(-72px, -92px);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 50px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here h2 {
+    width: 600px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here p {
+    width: 500px;
+  }
+
+  #banner .banner-4 > div .here {
+    transform: scale(0.55) translate(-72px, -42px) !important;
+  }
+
+  #banner .banner-5 div > * {
+    transform: scale(0.45) translateY(-50px) !important;
+  }
+
+  #banner .banner-5 > div > div a {
+    margin: -190px -20px 0 -20px;
+    transform: scale(0.65) !important;
+  }
+
+  #banner .handlers .dot {
+    height: 12px;
+    width: 12px;
+    border-width: 1px;
+  }
+}
+@media screen and (max-width: 650px) {
+  #banner .banner-1 > div {
+    transform: scale(0.3) translate(-630px, -520px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 150px !important;
+    left: calc(50% - 75px);
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    transform: scale(0.35) translate(-170px, -200px);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 50px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here h2 {
+    width: 600px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here p {
+    width: 500px;
+  }
+
+  #banner .banner-4 > div .here {
+    transform: scale(0.35) translate(-170px, -42px) !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  #banner .banner-1 > div {
+    transform: scale(0.25) translate(-710px, -740px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 100px !important;
+    left: calc(50% - 50px);
+  }
+}
+@media screen and (max-width: 500px) {
+  #banner .banner-1 > div {
+    transform: scale(0.25) translate(-630px, -740px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 100px !important;
+    left: calc(50% - 50px);
+  }
+}
+@media screen and (max-width: 450px) {
+  #banner .banner-1 > div {
+    transform: scale(0.25) translate(-580px, -780px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 100px !important;
+    left: calc(50% - 50px);
+  }
+
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    transform: scale(0.25) translate(-215px, -380px);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 50px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here h2 {
+    width: 600px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here p {
+    width: 500px;
+  }
+
+  #banner .banner-4 > div .here {
+    transform: scale(0.25) translate(-215px, -200px) !important;
+  }
+
+  #banner .banner-5 div > * {
+    transform: scale(0.25) translateY(-50px) !important;
+  }
+
+  #banner .banner-5 > div > div a {
+    margin: -574px -10px 0 -10px;
+    transform: scale(0.65) !important;
+  }
+
+  #banner .banner-5 > div > div {
+    margin-left: -40px;
+  }
+}
+@media screen and (max-width: 400px) {
+  #banner .banner-1 > div {
+    transform: scale(0.2) translate(-670px, -1110px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 80px !important;
+    left: calc(50% - 40px);
+  }
+}
+@media screen and (max-width: 380px) {
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here {
+    transform: scale(0.25) translate(-215px, -420px);
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here div {
+    margin-top: 50px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here h2 {
+    width: 600px;
+  }
+  #banner .banner:not(.banner-1):not(.banner-5) > div .here p {
+    width: 500px;
+  }
+
+  #banner .banner-3 > div .here {
+    transform: scale(0.25) translate(-215px, -477px) !important;
+  }
+
+  #banner .banner-4 > div .here {
+    transform: scale(0.25) translate(-215px, -200px) !important;
+  }
+}
+@media screen and (max-width: 350px) {
+  #banner .banner-1 > div {
+    transform: scale(0.15) translate(-780px, -1900px) !important;
+    margin: 0;
+  }
+
+  #banner .banner-1 > img {
+    width: 80px !important;
+    left: calc(50% - 40px);
   }
 }
 
