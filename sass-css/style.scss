@@ -253,6 +253,7 @@ footer {
 	transition: $transition;
 	font-size: 22px;
 	position: fixed;
+	z-index: 30;
 	&:hover {
 		background-color: $verde;
 	}
@@ -268,7 +269,109 @@ footer {
 	justify-content: center;
 	overflow: hidden;
 	transition: $transition;
+	#banner-slide {
+		position: relative;
+		* {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none; 
+		}
+		& > div {
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		#slide1a {
+			background-image: url(../assets/fondo-banner-1a.jpg);
+			background-size: cover;
+			background-position: center center;
+			background-attachment: fixed;
+			width: 50%;
+			overflow: hidden;
+			z-index: 2;
+			min-width: 5px;
+			& > div {
+				width: 100vw;
+				display: flex;
+				justify-content: center;
+				margin-left: -200px;
+				align-items: center;
+				& > div { margin-top: 120px; }
+			}
+			.calculadora {
+				margin-left: 80px;
+			}
+		}
+		#slide1b {
+			background-image: url(../assets/fondo-banner-5.jpg);
+			background-size: cover;
+			background-position: center center;
+			background-attachment: fixed;
+			& > div {
+				width: 100vw;
+				display: flex;
+				justify-content: center;
+				margin-right: -200px;
+				align-items: center;
+				& > div { transform: translateX(-150px); }
+				& > div > div:first-child {
+					text-align: right;
+				}
+				& > div > div:last-child {
+					text-align: right;
+					margin-top: 50px;
+				}
+				h2 {
+					color: $morado;
+				}
+				h3 {
+					color: $magenta;
+					text-transform: uppercase;
+					font-weight: 900;
+					font-size: 62px;
+					line-height: 60px;
+					span {
+						font-weight: 900;
+						font-size: 48px;
+					}
+				}
+			}
+			.billetera {
+				margin-left: 750px;
+				margin-top: 160px;
+			}
+		}
+		#divisor {
+			position: absolute;
+			display: block;
+			width: 2px;
+			height: 100%;
+			background-color: #fff;
+			top: 0;
+			left: 50%;
+			z-index: 2;
+			cursor: pointer;
+		}
+		#handler {
+			position: absolute;
+			font-size: 20px;
+			color: #fff;
+			cursor: pointer;
+			display: block;
+			z-index: 2;
+			width: 20px;
+			text-align: center;
+			left: calc(50% - 9px);
+			top: calc(50% - 10px);
+			span {
+				font-size: inherit;
+			}
+		}
+	}
 	.cnt-image-size {
+		position: absolute;
 		#image-size {
 			opacity: 0;
 			z-index: -20;
@@ -308,16 +411,16 @@ footer {
 		position: absolute;
 		top: 0;
 		display: none;
-		width: 100%;
+		width: 100vw;
 		height: 100%;
 		color: #fff;
-		max-width: 2000px;
 	}
 	.handlers {
 		@extend %block-center;
 		position: absolute;
 		bottom: 15px;
 		width: 100%;
+		z-index: 10;
 		.dot {
 			display: block;
 			height: 18px;
@@ -349,8 +452,6 @@ footer {
 			transform: translateX(0px) !important;
 		}
 		& > div {
-			margin: 100px 0 0 100px;
-			max-width: 950px;
 			img {
 				width: auto;
 				opacity: 0;
@@ -399,8 +500,11 @@ footer {
 				transition: $transition;
 			}
 			& > div {
-				display: flex;
-				align-items: center;
+				// display: flex;
+				// align-items: center;
+				// position: absolute;
+				// left: 100px;
+				// top: 50px;
 				p {
 					margin: 0;
 					font-weight: 400;
@@ -610,6 +714,7 @@ footer {
 	background-image: url(../assets/fondo-requisitos.jpg);
 	background-position: top center;
 	background-attachment: fixed;
+	background-size: cover;
 	color: #fff;
 	padding: 60px 0;
 	h2 {
@@ -1640,49 +1745,62 @@ footer {
 }
 
 @media screen and (max-width: 1700px){
-	#banner .banner-1 > div {
-		transform: scale(0.9) !important;
-		margin: 50px 0 0 50px;
-	}
+	
 }
 
 @media screen and (max-width: 1650px){
-	#banner .banner-1 > div {
-		transform: scale(0.8) !important;
-		margin: 0;
-	}
-	#banner .banner-1 > img {
-		width: 350px !important;
-		left: calc(50% - 175px);
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.9);
+		margin-top: 0;
 	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		padding: 100px 0 0 100px;
 		transform: scale(0.9);
 		div { margin-top: 100px; }
 	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.9) translate(-180px, -140px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.9); }
+	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.9); }
+	#banner #banner-slide #slide1b > div {
+		h3, h2 { width: 600px; }
+	}
 }
 
 @media screen and (max-width: 1400px){
-	#banner .banner-1 > div {
-		transform: scale(0.75) translate(-80px, -40px) !important;
-		margin: 0;
-	}
-	#banner .banner-1 > img {
-		width: 260px !important;
-		left: calc(50% - 130px);
-	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		transform: scale(0.75);
 	}
 	#banner .banner-5 div > * { transform: scale(0.85) !important; }
 	#banner .banner-5 > div > div a { margin-top: 50px; }
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.8) translate(0, -60px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.8) translate(-310px, -140px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.8); }
+	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.8); }
+}
+
+@media screen and (max-width: 1250px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.7) translate(30px, -125px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.7) translate(-400px, -230px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.7) translateY(-100px); }
+	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.7); }
 }
 
 @media screen and (max-width: 1200px){
-	#banner .banner-1 > div {
-		transform: scale(0.65) translate(-190px, -90px) !important;
-		margin: 0;
-	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		padding: 0;
 		transform: scale(0.55) translate(-72px, -92px);
@@ -1693,31 +1811,47 @@ footer {
 	}
 	#banner .banner-5 div > * { transform: scale(0.65) !important; }
 	#banner .banner-5 > div > div a { margin: -50px -20px 0 -20px; }
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.6) translateY(-140px); }
+	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.6); }
 }
 
-@media screen and (max-width: 1024px){
-	#banner .banner-1 > div {
-		transform: scale(0.55) translate(-310px, -170px) !important;
-		margin: 0;
+@media screen and (max-width: 1150px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.6) translate(100px, -185px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.6) translate(-480px, -330px);
+		margin-top: 0;
 	}
 }
 
-@media screen and (max-width: 900px){
-	#banner .banner-1 > div {
-		transform: scale(0.45) translate(-450px, -250px) !important;
-		margin: 0;
+@media screen and (max-width: 1050px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.5) translate(200px, -255px);
+		margin-top: 0;
 	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.5) translate(-640px, -410px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b .billetera { margin-top: 0; }
+}
+
+@media screen and (max-width: 950px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.5) translate(300px, -255px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.5) translate(-740px, -360px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.5) translateY(-240px); }
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.5); }
 }
 
 @media screen and (max-width: 800px){
-	#banner .banner-1 > div {
-		transform: scale(0.4) translate(-440px, -330px) !important;
-		margin: 0;
-	}
-	#banner .banner-1 > img {
-		width: 200px !important;
-		left: calc(50% - 100px);
-	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		transform: scale(0.55) translate(-72px, -92px);
 		div { margin-top: 50px; }
@@ -1739,15 +1873,37 @@ footer {
 	}
 }
 
+@media screen and (max-width: 760px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.4) translate(530px, -435px) !important;
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.4) translate(-740px, -360px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.4) translate(-150px, -400px) !important; }
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.4) translateY(-200px) !important; }
+}
+
+@media screen and (max-width: 950px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.4) translate(390px, -435px);
+		margin-top: 0;
+		p { width: 550px; }
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.4) translate(-1070px, -470px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.4) translate(-150px, -240px);
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.4); }
+}
+
 @media screen and (max-width: 650px){
-	#banner .banner-1 > div {
-		transform: scale(0.3) translate(-630px, -520px) !important;
-		margin: 0;
-	}
-	#banner .banner-1 > img {
-		width: 150px !important;
-		left: calc(50% - 75px);
-	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		transform: scale(0.35) translate(-170px, -200px);
 		div { margin-top: 50px; }
@@ -1757,39 +1913,57 @@ footer {
 	#banner .banner-4 > div .here {
 		transform: scale(0.35) translate(-170px, -42px) !important;
 	}
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.3) translate(780px, -675px) !important;
+		margin-top: 0;
+		p { width: 550px; }
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.3) translate(-1500px, -780px) !important;
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.3) translate(-230px, -610px) !important;
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.3); }
 }
 
 @media screen and (max-width: 550px){
-	#banner .banner-1 > div {
-		transform: scale(0.25) translate(-710px, -740px) !important;
-		margin: 0;
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.2) translate(1280px, -1175px) !important;
+		margin-top: 0;
+		p { width: 550px; }
 	}
-	#banner .banner-1 > img {
-		width: 100px !important;
-		left: calc(50% - 50px);
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.2) translate(-2270px, -1300px) !important;
+		margin-top: 0;
 	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.2) translate(-360px, -1030px) !important;
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.2); }
 }
 
 @media screen and (max-width: 500px){
-	#banner .banner-1 > div {
-		transform: scale(0.25) translate(-630px, -740px) !important;
-		margin: 0;
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.2) translate(1340px, -1175px) !important;
+		margin-top: 0;
+		p { width: 550px; }
 	}
-	#banner .banner-1 > img {
-		width: 100px !important;
-		left: calc(50% - 50px);
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.2) translate(-2420px, -1300px) !important;
+		margin-top: 0;
 	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.2) translate(-360px, -1030px) !important;
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.2) translate(-210px,-920px) !important; }
 }
 
 @media screen and (max-width: 450px){
-	#banner .banner-1 > div {
-		transform: scale(0.25) translate(-580px, -780px) !important;
-		margin: 0;
-	}
-	#banner .banner-1 > img {
-		width: 100px !important;
-		left: calc(50% - 50px);
-	}
 	#banner .banner:not(.banner-1):not(.banner-5) > div .here {
 		transform: scale(0.25) translate(-215px, -380px);
 		div { margin-top: 50px; }
@@ -1808,14 +1982,20 @@ footer {
 }
 
 @media screen and (max-width: 400px){
-	#banner .banner-1 > div {
-		transform: scale(0.2) translate(-670px, -1110px) !important;
-		margin: 0;
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.2) translate(1750px, -1275px) !important;
+		margin-top: 0;
+		p { width: 550px; }
 	}
-	#banner .banner-1 > img {
-		width: 80px !important;
-		left: calc(50% - 40px);
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.2) translate(-2810px, -1390px) !important;
+		margin-top: 0;
 	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.2) translate(-360px, -1030px) !important;
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.2) translate(-270px, -1160px) !important; }
 }
 
 @media screen and (max-width: 380px){
@@ -1833,13 +2013,19 @@ footer {
 	}
 }
 
-@media screen and (max-width: 350px){
-	#banner .banner-1 > div {
-		transform: scale(0.15) translate(-780px, -1900px) !important;
-		margin: 0;
+@media screen and (max-width: 320px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.2) translate(1750px, -1275px) !important;
+		margin-top: 0;
+		p { width: 550px; }
 	}
-	#banner .banner-1 > img {
-		width: 80px !important;
-		left: calc(50% - 40px);
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.2) translate(-2810px, -1390px) !important;
+		margin-top: 0;
 	}
+	#banner #banner-slide #slide1a .calculadora {
+		margin-left: 0;
+		transform: scale(0.2) translate(-360px, -1030px) !important;
+	}
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.2) translate(-270px, -1160px) !important; }
 }
