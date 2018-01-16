@@ -41,22 +41,49 @@
 
 	<section id="banner">
 		<img class="shadow" src="../assets/shadow.png" alt="">
-		<article class="banner banner-1">
-			<div>
-				<h2><span>Acepta Pagos</span><span>con Tarjetas</span></h2>
-				<h3>de cr&eacute;dito y d&eacute;bito</h3>
-				<p>desde tu smartphone y en cualquier<br>parte que te encuentres</p>
+		<div class="cnt-image-size"><img src="../assets/img-banner-2.jpg" id="image-size"></div>
+		<article id="banner-slide" class="banner banner-1">
+			<div id="slide1a">
 				<div>
-					<img src="../assets/175.png" alt="S/ 175">
-					<p>precio &uacute;nico del equipo</p>
+					<div>
+						<h2><span>Acepta Pagos</span><span>con Tarjetas</span></h2>
+						<h3>de cr&eacute;dito y d&eacute;bito</h3>
+						<p>desde tu smartphone y en cualquier<br>parte que te encuentres</p>
+						<div>
+							<img src="../assets/175.png" alt="S/ 175">
+							<p>precio &uacute;nico del equipo</p>
+						</div>
+						<div>
+							<img src="../assets/2.99.png" alt="2.99 %">
+							<p>Comisi&oacute;n por transacci&oacute;n</p>
+						</div>
+						<a class="compralo" href="#">C&oacute;mpralo ahora</a>
+					</div>
+					<img class="calculadora" src="../assets/calculadora.png" alt="">
 				</div>
-				<div>
-					<img src="../assets/2.99.png" alt="2.99 %">
-					<p>Comisi&oacute;n por transacci&oacute;n</p>
-				</div>
-				<a class="compralo" href="#">C&oacute;mpralo ahora</a>
 			</div>
-			<img src="../assets/calculadora.png" alt="" width="606">
+			<div>
+				<div id="divisor"></div>
+				<div id="handler">
+					<span class="fa fa-caret-left"></span>
+					<span class="fa fa-caret-right"></span>
+				</div>
+			</div>
+			<div id="slide1b">
+				<div>
+					<img class="billetera" src="../assets/billetera.png" alt="">
+					<div>
+						<div>
+							<h2>&iquest;Tus clientes<br><span>no tienen efectivo?</span></h2>
+							<h3><span>&iexcl;No hay</span><br>Problema!</h3>
+						</div>
+						<div>
+							<a href=""><img src="../assets/google-play-banner.png" alt="Co&oacute;mpralo por Google Play"></a>
+							<a href=""><img src="../assets/app-store-banner.png" alt="Co&oacute;mpralo por App Store"></a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</article>
 		<article class="banner banner-2">
 			<div>
@@ -72,7 +99,9 @@
 						<a href=""><img src="../assets/app-store-banner.png" alt="Co&oacute;mpralo por App Store"></a>
 					</div>
 				</div>
-				<div><img class="hereImg" src="../assets/img-banner-2.jpg" alt=""></div>
+				<div>
+					<img class="hereImg" src="../assets/img-banner-2.jpg" alt="">
+				</div>
 			</div>
 		</article>
 		<article class="banner banner-3">
@@ -390,6 +419,7 @@
 			lazyLoadPreguntas();
 			resizeInput();
 			$(window).resize(resizeInput);
+			swipeBanner();
 		});
 	</script>
 </body>

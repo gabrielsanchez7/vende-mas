@@ -631,15 +631,19 @@ function lazyLoadIndex(){
 			}, 750);
 		}
 
-		var loadBeneficios = ($('#list-beneficios ul').offset().top) + ($('#list-beneficios ul').height());
-		if(loadBeneficios <= windowBot){
+		var loadBeneficios1 = ($('#list-beneficios ul li:nth-child(1)').offset().top) + ($('#list-beneficios ul li:nth-child(1)').height());
+		if(loadBeneficios1 <= windowBot){
 			$('#list-beneficios ul li:nth-child(1), #list-beneficios ul li:nth-child(2)').css({
 				animation: 'lazyBeneficiosOne 0.25s ease',
 				transform: 'translateX(0)',
 				opacity: 1
 			});
+		}
+
+		var loadBeneficios2 = ($('#list-beneficios ul li:nth-child(3)').offset().top) + ($('#list-beneficios ul li:nth-child(4)').height());
+		if(loadBeneficios2 <= windowBot){
 			$('#list-beneficios ul li:nth-child(3), #list-beneficios ul li:nth-child(4)').css({
-				animation: 'lazyBeneficiosTwo 0.25s ease',
+				animation: 'lazyBeneficiosOne 0.25s ease',
 				transform: 'translateX(0)',
 				opacity: 1
 			});
