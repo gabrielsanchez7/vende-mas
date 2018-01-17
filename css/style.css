@@ -288,9 +288,12 @@ footer p a {
 }
 #banner #banner-slide #slide1a > div > div {
   margin-top: 120px;
+  width: 700px;
+  transform: translateX(-200px);
 }
 #banner #banner-slide #slide1a .calculadora {
-  margin-left: 80px;
+  margin-left: -310px;
+  width: 456px;
 }
 #banner #banner-slide #slide1b {
   background-image: url(../assets/fondo-banner-5.jpg);
@@ -454,7 +457,11 @@ footer p a {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
 }
-#banner .banner-1 > div h2 span {
+#banner .banner-1 > div h2 span:first-child {
+  font-size: inherit;
+  font-weight: inherit;
+}
+#banner .banner-1 > div h2 span:last-child {
   font-family: "Lato", sans-serif;
   display: block;
   font-size: 48px;
@@ -485,13 +492,12 @@ footer p a {
   opacity: 0;
   transition: 0.2s linear;
 }
-#banner .banner-1 > div > div p {
+#banner .banner-1 > div p ~ div {
+  display: flex;
+  align-items: center;
+}
+#banner .banner-1 > div p ~ div p {
   margin: 0;
-  font-weight: 400;
-  font-size: 22px;
-  margin-left: 5px;
-  transform: translateY(150px);
-  transition: 0.2s linear;
 }
 @keyframes banner2-4 {
   0% {
@@ -1825,7 +1831,7 @@ footer p a {
 }
 @media screen and (max-width: 1650px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.9);
+    transform: scale(0.9) translateX(-150px);
     margin-top: 0;
   }
 
@@ -1869,7 +1875,7 @@ footer p a {
   }
 
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.8) translate(0, -60px);
+    transform: scale(0.8) translate(-90px, -60px);
     margin-top: 0;
   }
 
@@ -1879,7 +1885,7 @@ footer p a {
   }
 
   #banner #banner-slide #slide1a .calculadora {
-    transform: scale(0.8);
+    transform: scale(0.8) translateY(-70px);
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -1889,7 +1895,7 @@ footer p a {
 }
 @media screen and (max-width: 1250px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.7) translate(30px, -125px);
+    transform: scale(0.7) translate(-30px, -125px);
     margin-top: 0;
   }
 
@@ -1939,7 +1945,7 @@ footer p a {
 }
 @media screen and (max-width: 1150px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.6) translate(100px, -185px);
+    transform: scale(0.6) translate(-30px, -185px);
     margin-top: 0;
   }
 
@@ -1950,7 +1956,7 @@ footer p a {
 }
 @media screen and (max-width: 1050px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.5) translate(200px, -255px);
+    transform: scale(0.5) translate(10px, -255px);
     margin-top: 0;
   }
 
@@ -2027,7 +2033,7 @@ footer p a {
   }
 
   #banner #banner-slide #slide1a .calculadora {
-    transform: scale(0.4) translate(-150px, -400px) !important;
+    transform: scale(0.4) translate(-390px, -400px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2036,7 +2042,7 @@ footer p a {
 }
 @media screen and (max-width: 950px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.4) translate(390px, -435px);
+    transform: scale(0.45) translate(350px, -315px);
     margin-top: 0;
   }
   #banner #banner-slide #slide1a > div > div p {
@@ -2050,7 +2056,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.4) translate(-150px, -240px);
+    transform: scale(0.45) translate(-340px, -260px);
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2090,7 +2096,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.3) translate(-230px, -610px) !important;
+    transform: scale(0.3) translate(-510px, -610px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2099,7 +2105,7 @@ footer p a {
 }
 @media screen and (max-width: 550px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.2) translate(1280px, -1175px) !important;
+    transform: scale(0.25) translate(1150px, -835px) !important;
     margin-top: 0;
   }
   #banner #banner-slide #slide1a > div > div p {
@@ -2113,7 +2119,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.2) translate(-360px, -1030px) !important;
+    transform: scale(0.25) translate(-610px, -820px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2122,7 +2128,7 @@ footer p a {
 }
 @media screen and (max-width: 500px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.2) translate(1340px, -1175px) !important;
+    transform: scale(0.2) translate(1450px, -1075px) !important;
     margin-top: 0;
   }
   #banner #banner-slide #slide1a > div > div p {
@@ -2136,7 +2142,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.2) translate(-360px, -1030px) !important;
+    transform: scale(0.2) translate(-760px, -1070px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2176,7 +2182,7 @@ footer p a {
 }
 @media screen and (max-width: 400px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.2) translate(1750px, -1275px) !important;
+    transform: scale(0.2) translate(1640px, -1165px) !important;
     margin-top: 0;
   }
   #banner #banner-slide #slide1a > div > div p {
@@ -2190,7 +2196,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.2) translate(-360px, -1030px) !important;
+    transform: scale(0.15) translate(-1010px, -1560px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
@@ -2221,7 +2227,7 @@ footer p a {
 }
 @media screen and (max-width: 320px) {
   #banner #banner-slide #slide1a > div > div {
-    transform: scale(0.2) translate(1750px, -1275px) !important;
+    transform: scale(0.15) translate(2270px, -1645px) !important;
     margin-top: 0;
   }
   #banner #banner-slide #slide1a > div > div p {
@@ -2235,7 +2241,7 @@ footer p a {
 
   #banner #banner-slide #slide1a .calculadora {
     margin-left: 0;
-    transform: scale(0.2) translate(-360px, -1030px) !important;
+    transform: scale(0.12) translate(-1250px, -2080px) !important;
   }
 
   #banner #banner-slide #slide1b .billetera {
