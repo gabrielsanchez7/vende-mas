@@ -189,7 +189,7 @@ $(document).ready(function(){
 		}, 600);
 	}
 
-	intervalo = setInterval(slide, 9000);
+	intervalo = setInterval(slide, 900000);
 
 	handlers.find('.dot').click(function(ev){
 		var target = ev.target;
@@ -211,7 +211,7 @@ $(document).ready(function(){
 			inAnimation('.banner.active');
 		}, 1000);
 		clearInterval(intervalo);
-		intervalo = setInterval(slide, 9000);
+		intervalo = setInterval(slide, 900000);
 	});
 
 	function bgBanner(){

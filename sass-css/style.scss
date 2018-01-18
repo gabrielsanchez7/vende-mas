@@ -320,13 +320,13 @@ footer {
 				justify-content: center;
 				margin-right: -200px;
 				align-items: center;
-				& > div { transform: translateX(-150px); }
+				& > div { transform: translate(-90px, -60px); }
 				& > div > div:first-child {
 					text-align: right;
 				}
 				& > div > div:last-child {
 					text-align: right;
-					margin-top: 50px;
+					margin-top: 130px;
 				}
 				h2 {
 					color: $morado;
@@ -392,6 +392,7 @@ footer {
 		z-index: 10;
 		position: absolute;
 		top: 0;
+		left: calc(50% - 500px);
 	}
 	.compralo {
 		display: block;
@@ -475,6 +476,7 @@ footer {
 				span:first-child {
 					font-size: inherit;
 					font-weight: inherit;
+					font-family: inherit;
 				}
 				span:last-child {
 					font-family: $lato-regular;
@@ -1000,6 +1002,7 @@ footer {
 				width: 100%;
 				padding: 0 12px;
 				line-height: 32px;
+				height: 32px;
 				margin-bottom: 15px;
 				border-radius: 4px;
 				border: none;
@@ -1319,6 +1322,7 @@ footer {
 	.video-after {
 		position: absolute;
 		top: 0;
+		left: 0;
 		width: 100%;
 		height: calc(100% - 36px);
 		display: flex;
@@ -1761,7 +1765,7 @@ footer {
 		transform: scale(0.9) translate(-180px, -140px);
 		margin-top: 0;
 	}
-	#banner #banner-slide #slide1a .calculadora { transform: scale(0.9); }
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.9) !important; }
 	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.9); }
 	#banner #banner-slide #slide1b > div {
 		h3, h2 { width: 600px; }
@@ -1775,20 +1779,20 @@ footer {
 	#banner .banner-5 div > * { transform: scale(0.85) !important; }
 	#banner .banner-5 > div > div a { margin-top: 50px; }
 	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.8) translate(-90px, -60px);
+		transform: scale(0.7) translate(-90px, -40px);
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.8) translate(-310px, -140px);
+		transform: scale(0.75) translate(-350px, -160px);
 		margin-top: 0;
 	}
-	#banner #banner-slide #slide1a .calculadora { transform: scale(0.8) translateY(-70px); }
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.7) translateY(-60px) !important; }
 	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.8); }
 }
 
 @media screen and (max-width: 1250px){
 	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.7) translate(-30px, -125px);
+		transform: scale(0.7) translate(-30px, -75px);
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1b > div > div {
@@ -1810,19 +1814,21 @@ footer {
 	}
 	#banner .banner-5 div > * { transform: scale(0.65) !important; }
 	#banner .banner-5 > div > div a { margin: -50px -20px 0 -20px; }
-	#banner #banner-slide #slide1a .calculadora { transform: scale(0.6) translateY(-140px); }
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.6) translateY(-140px) !important; }
 	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.6); }
 }
 
 @media screen and (max-width: 1150px){
 	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.6) translate(-30px, -185px);
+		transform: scale(0.6) translate(-30px, -145px);
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.6) translate(-480px, -330px);
+		transform: scale(0.6) translate(-560px, -320px);
 		margin-top: 0;
 	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.55) translateY(-140px) !important; }
+	#banner #banner-slide #slide1b .billetera { margin-top: 100px; transform: scale(0.6) translate(30px, -100px); }
 }
 
 @media screen and (max-width: 1050px){
@@ -1831,10 +1837,10 @@ footer {
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.5) translate(-640px, -410px);
+		transform: scale(0.5) translate(-690px, -350px);
 		margin-top: 0;
 	}
-	#banner #banner-slide #slide1b .billetera { margin-top: 0; }
+	#banner #banner-slide #slide1b .billetera { margin-top: 0; transform: scale(0.6) translate(30px, 10px); }
 }
 
 @media screen and (max-width: 950px){
@@ -1872,19 +1878,6 @@ footer {
 	}
 }
 
-@media screen and (max-width: 760px){
-	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.4) translate(530px, -435px) !important;
-		margin-top: 0;
-	}
-	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.4) translate(-740px, -360px);
-		margin-top: 0;
-	}
-	#banner #banner-slide #slide1a .calculadora { transform: scale(0.4) translate(-390px, -400px) !important; }
-	#banner #banner-slide #slide1b .billetera { transform: scale(0.4) translateY(-200px) !important; }
-}
-
 @media screen and (max-width: 950px){
 	#banner #banner-slide #slide1a > div > div {
 		transform: scale(0.45) translate(350px, -315px);
@@ -1897,9 +1890,22 @@ footer {
 	}
 	#banner #banner-slide #slide1a .calculadora {
 		margin-left: 0;
-		transform: scale(0.45) translate(-340px, -260px);
+		transform: scale(0.45) translate(-340px, -260px) !important;
 	}
 	#banner #banner-slide #slide1b .billetera { transform: scale(0.4); }
+}
+
+@media screen and (max-width: 760px){
+	#banner #banner-slide #slide1a > div > div {
+		transform: scale(0.4) translate(580px, -395px) !important;
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1b > div > div {
+		transform: scale(0.4) translate(-1060px, -500px);
+		margin-top: 0;
+	}
+	#banner #banner-slide #slide1a .calculadora { transform: scale(0.4) translate(-390px, -400px) !important; }
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.4) translate(-100px, -200px) !important; }
 }
 
 @media screen and (max-width: 650px){
@@ -1913,19 +1919,19 @@ footer {
 		transform: scale(0.35) translate(-170px, -42px) !important;
 	}
 	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.3) translate(780px, -675px) !important;
+		transform: scale(0.3) translate(840px, -625px) !important;
 		margin-top: 0;
 		p { width: 550px; }
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.3) translate(-1500px, -780px) !important;
+		transform: scale(0.3) translate(-1500px, -750px) !important;
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1a .calculadora {
 		margin-left: 0;
 		transform: scale(0.3) translate(-510px, -610px) !important;
 	}
-	#banner #banner-slide #slide1b .billetera { transform: scale(0.3); }
+	#banner #banner-slide #slide1b .billetera { transform: scale(0.3) translate(-110px, -420px) !important; }
 }
 
 @media screen and (max-width: 550px){
@@ -1935,7 +1941,7 @@ footer {
 		p { width: 550px; }
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.2) translate(-2270px, -1300px) !important;
+		transform: scale(0.25) translate(-1940px, -970px) !important;
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1a .calculadora {
@@ -1947,12 +1953,12 @@ footer {
 
 @media screen and (max-width: 500px){
 	#banner #banner-slide #slide1a > div > div {
-		transform: scale(0.2) translate(1450px, -1075px) !important;
+		transform: scale(0.2) translate(1450px, -1095px) !important;
 		margin-top: 0;
 		p { width: 550px; }
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.2) translate(-2420px, -1300px) !important;
+		transform: scale(0.2) translate(-2470px, -1240px) !important;
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1a .calculadora {
@@ -1987,7 +1993,7 @@ footer {
 		p { width: 550px; }
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.2) translate(-2810px, -1390px) !important;
+		transform: scale(0.2) translate(-2700px, -1320px) !important;
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1a .calculadora {
@@ -2019,7 +2025,7 @@ footer {
 		p { width: 550px; }
 	}
 	#banner #banner-slide #slide1b > div > div {
-		transform: scale(0.2) translate(-2810px, -1390px) !important;
+		transform: scale(0.15) translate(-3630px, -1840px) !important;
 		margin-top: 0;
 	}
 	#banner #banner-slide #slide1a .calculadora {
